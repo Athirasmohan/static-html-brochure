@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HealthGuide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Mobile topbar (shows only on small screens) -->
+  <header class="topbar">
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">HealthGuide</div>
+  </header>
+
+  <!-- ✅ Layout must wrap sidebar + main together -->
+  <div class="layout">
+
+    <aside id="sidebar" class="sidebar" aria-label="Primary">
+      <div class="sidebar-brand">
+        <div class="brand-badge">HealthGuide</div>
+        <div class="brand-sub">digital services guide</div>
+      </div>
+
+      <a class="sidebar-back" href="index.html">← Exit guide</a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link active">What is HealthGuide</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="access.html" class="nav-link">How to Access</a>
+        <a href="privacy.html" class="nav-link">Privacy & Consent</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="support">
+          <span class="support-ico">☎</span>
+          <span class="support-text">Support: +1 (800) 245-7890</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ✅ Your page content must be inside this main -->
+    <main class="content">
+<h1>What is HealthGuide</h1>
+
+<p>
+HealthGuide is a digital healthcare access platform designed to provide citizens with
+secure and convenient access to health-related information and services.
+It enables users to consult medical records, review documentation,
+and access official healthcare services online.
+</p>
+
+<div class="card" style="margin-top:25px;">
+  <h2>What It Is Used For</h2>
+  <p>
+  The platform allows users to access both informational and medical services in a
+  centralized, secure environment. It supports digital identity authentication
+  and ensures privacy-compliant access to sensitive healthcare data.
+  </p>
+</div>
+
+<div class="card" style="margin-top:25px;">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Secure access via verified digital identity</li>
+    <li>Centralized healthcare documentation</li>
+    <li>Multi-device responsive access</li>
+    <li>Structured and user-friendly navigation</li>
+  </ul>
+</div>
+
+    </main>
+
+  </div>
+
+  <!-- page overlay for mobile -->
+  <div class="overlay" data-overlay></div>
+
+  <script>
+    (function () {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.querySelector('[data-overlay]');
+      const btn = document.querySelector('.menu-btn');
+
+      function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('show');
+        btn?.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+
+      btn?.addEventListener('click', () => {
+        sidebar.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      overlay?.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | HealthGuide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Overview of informational and medical services available on the HealthGuide digital platform.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Mobile Topbar -->
+  <header class="topbar">
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+      ☰
+    </button>
+    <div class="topbar-title">HealthGuide</div>
+  </header>
+
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar" aria-label="Primary Navigation">
+
+      <div class="sidebar-brand">
+        <div class="brand-badge">HealthGuide</div>
+        <div class="brand-sub">digital services guide</div>
+      </div>
+
+      <a class="sidebar-back" href="index.html">← Exit guide</a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">What is HealthGuide</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="access.html" class="nav-link">How to Access</a>
+        <a href="privacy.html" class="nav-link">Privacy & Consent</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="support">
+          <span class="support-ico">☎</span>
+          <span class="support-text">Support: +1 (800) 245-7890</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <h1>Available Services</h1>
+
+      <p>
+        HealthGuide provides both informational and medical services through a secure,
+        structured digital platform designed for accessibility and reliability.
+      </p>
+
+      <div class="card" style="margin-top:25px;">
+        <h2>Informational Services</h2>
+
+        <p>
+          Access official healthcare documentation, public announcements,
+          and policy information within a centralized online environment.
+        </p>
+
+        <ul>
+          <li>Healthcare regulations and compliance updates</li>
+          <li>Public health notifications</li>
+          <li>Official documentation and downloadable resources</li>
+          <li>Regional healthcare service information</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:25px;">
+        <h2>Medical Services</h2>
+
+        <p>
+          Securely review and manage personal healthcare data,
+          accessible only through verified authentication systems.
+        </p>
+
+        <ul>
+          <li>Electronic health record consultation</li>
+          <li>Prescription and medication history</li>
+          <li>Laboratory and diagnostic reports</li>
+          <li>Appointment and visit history tracking</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:25px;">
+        <h2>Platform Benefits</h2>
+
+        <ul>
+          <li>Secure digital identity authentication</li>
+          <li>Structured and intuitive navigation</li>
+          <li>Multi-device responsive access</li>
+          <li>Compliance with healthcare data standards</li>
+        </ul>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Overlay for mobile -->
+  <div class="overlay" data-overlay></div>
+
+  <!-- Sidebar Toggle Script -->
+  <script>
+    (function () {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.querySelector('[data-overlay]');
+      const btn = document.querySelector('.menu-btn');
+
+      function openMenu() {
+        sidebar.classList.add('open');
+        overlay.classList.add('show');
+        btn?.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('show');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+
+      btn?.addEventListener('click', () => {
+        sidebar.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      overlay?.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+  </script>
+
+</body>
+</html>
